@@ -772,9 +772,48 @@ Upcoming Features
         INITIALIZATION
 ========================================== */
 
+function updateGreeting() {
+
+    const hour = new Date().getHours();
+
+    let greeting = "";
+
+    if (hour >= 5 && hour < 12) {
+
+        greeting = "Good Morning ☀️";
+
+    } else if (hour >= 12 && hour < 17) {
+
+        greeting = "Good Afternoon 🌤️";
+
+    } else if (hour >= 17 && hour < 21) {
+
+        greeting = "Good Evening 🌆";
+
+    } else {
+
+        greeting = "Good Night 🌙";
+
+    }
+
+    const heading = document.getElementById("greeting");
+
+    if (heading) {
+        heading.textContent = greeting;
+    }
+
+}
+
+
 window.addEventListener("load",()=>{
 
     console.log("✅ Baymax Ready");
+
+    updateGreeting();
+
+    const cards = document.querySelectorAll(".dashboard-card");
+
+    disableSend();
 
     input.focus();
 
